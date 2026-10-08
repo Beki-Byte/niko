@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niko</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAcCyOO42GuoTDa6_wlmjzQM32ewqK9rSk",
+        authDomain: "niko-ki.firebaseapp.com",
+        projectId: "niko-ki",
+        storageBucket: "niko-ki.firebasestorage.app",
+        messagingSenderId: "23614575476",
+        appId: "1:23614575476:web:62fab70e87c1bca94d5221",
+        measurementId: "G-CQ15DV0HLX"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      window.db = getFirestore(app);
+      window.firestoreHelpers = { doc, getDoc, setDoc };
+    </script>
+</head>
+<body>
+
+    <!-- Hintergrund-Lilien & Schwebende Bälle -->
+    <div class="lily-bg"></div>
+    <div class="bg-ball ball-top-left"></div>
+    <div class="bg-ball ball-top-right"></div>
+    <div class="bg-ball ball-bottom-right"></div>
+
+    <div class="app-container">
+        <div class="header">
+            <span class="status-title">Niko</span>
+        </div>
+
+        <div id="chat-box" class="chat-box">
+            <div class="message niko">hellö, schieß los.</div>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="user-input" placeholder="Nachricht schreiben..." autocomplete="off">
+            <button id="send-btn">Senden</button>
+            <a href="sprache.html" id="mic-btn">
+                <div class="mic-icon"></div>
+            </a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niko - Voice</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAcCyOO42GuoTDa6_wlmjzQM32ewqK9rSk",
+        authDomain: "niko-ki.firebaseapp.com",
+        projectId: "niko-ki",
+        storageBucket: "niko-ki.firebasestorage.app",
+        messagingSenderId: "23614575476",
+        appId: "1:23614575476:web:62fab70e87c1bca94d5221",
+        measurementId: "G-CQ15DV0HLX"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      window.db = getFirestore(app);
+      window.firestoreHelpers = { doc, getDoc, setDoc };
+    </script>
+</head>
+<body>
+
+    <div class="lily-bg"></div>
+
+    <div class="app-container voice-mode">
+        <div class="header voice-header">
+            <a href="index.html" class="back-btn">← Chat</a>
+            <span class="status-title">Niko Voice</span>
+        </div>
+
+        <!-- Bunter, animierter Ball -->
+        <div class="orb-container">
+            <div class="orb" id="voice-orb">
+                <div class="cloud c1"></div>
+                <div class="cloud c2"></div>
+                <div class="cloud c3"></div>
+            </div>
+        </div>
+
+        <div class="voice-status">
+            <p id="status-text">Klicke auf den Ball, um zu sprechen...</p>
+            <p id="transcript-text" class="sub-text"></p>
+        </div>
+
+        <div class="voice-controls">
+            <a href="index.html" class="close-voice-btn">Anruf beenden</a>
+        </div>
+    </div>
+
+    <script src="voice.js"></script>
+</body>
+</html>

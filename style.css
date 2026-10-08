@@ -1,0 +1,277 @@
+:root {
+    --pine-tree: #2C341B;
+    --morning-blue: #94A59C;
+    --bone: #DDDFC2;
+    --olivine: #97AC82;
+    --russian-green: #688A65;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #0d0f0a;
+    color: var(--bone);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hintergrund-Lilien */
+.lily-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('lilien.png');
+    background-size: cover;
+    background-position: center;
+    filter: invert(1) opacity(0.12);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* SCHWEBENDE BÄLLE IM HINTERGRUND */
+.bg-ball {
+    position: absolute;
+    border-radius: 50%;
+    background: #8FA782;
+    opacity: 0.85;
+    z-index: 1;
+    pointer-events: none;
+    animation: floatBall 6s infinite alternate ease-in-out;
+}
+
+.ball-top-left {
+    width: 220px;
+    height: 220px;
+    top: -50px;
+    left: -50px;
+}
+
+.ball-top-right {
+    width: 240px;
+    height: 240px;
+    top: 40px;
+    right: -60px;
+    animation-delay: -2s;
+}
+
+.ball-bottom-right {
+    width: 280px;
+    height: 280px;
+    bottom: -70px;
+    right: -60px;
+    animation-delay: -4s;
+}
+
+@keyframes floatBall {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(15px, 20px) scale(1.05);
+    }
+}
+
+/* CHAT CONTAINER (Clean, ohne sichtbaren Kasten) */
+.app-container {
+    position: relative;
+    z-index: 2;
+    width: 380px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header */
+.header {
+    padding-bottom: 10px;
+}
+
+.status-title {
+    font-size: 16px;
+    color: var(--bone);
+    font-weight: 500;
+}
+
+/* Chatverlauf */
+.chat-box {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.message {
+    padding: 10px 16px;
+    border-radius: 16px;
+    max-width: 80%;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.niko {
+    background: rgba(45, 52, 32, 0.85);
+    color: var(--bone);
+    align-self: flex-start;
+    border-radius: 16px;
+}
+
+.message.user {
+    background: var(--russian-green);
+    color: #ffffff;
+    align-self: flex-end;
+    border-radius: 16px;
+}
+
+/* Controls unten */
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+input {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(221, 223, 194, 0.2);
+    background: rgba(20, 24, 17, 0.6);
+    color: var(--bone);
+    outline: none;
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: rgba(221, 223, 194, 0.4);
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 22px;
+    background: #8FA782;
+    color: #11140E;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#mic-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(20, 24, 17, 0.6);
+    border: 1px solid rgba(221, 223, 194, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.mic-icon {
+    width: 10px;
+    height: 10px;
+    background: var(--bone);
+    border-radius: 50%;
+}
+
+/* SPRACH-SEITE (sprache.html) */
+.voice-mode {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-btn {
+    color: var(--morning-blue);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Der animierte Farbball */
+.orb-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.orb {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #1e2617;
+    box-shadow: 0 0 50px rgba(151, 172, 130, 0.5);
+    filter: blur(8px);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Die bunten, schwebenden Farbwolken im Ball */
+.cloud {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    opacity: 0.95;
+    animation: moveCloud 7s infinite alternate ease-in-out;
+}
+
+.c1 {
+    width: 160px;
+    height: 160px;
+    background: #97AC82;
+    top: -20px;
+    left: -20px;
+    animation-duration: 5s;
+}
+
+.c2 {
+    width: 150px;
+    height: 150px;
+    background: #B3C8A0;
+    bottom: -20px;
+    right: -10px;
+    animation-duration: 8s;
+}
+
+.c3 {
+    width: 140px;
+    height: 140px;
+    background: #688A65;
+    top: 30px;
+    right: 20px;
+    animation-duration: 6s;
+}
+
+@keyframes moveCloud {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    50% {
+        transform: translate(35px, -20px) scale(1.25) rotate(90deg);
+    }
+    100% {
+        transform: translate(-20px, 35px) scale(0.85) rotate(180deg);
+    }
+}
+.close-voice-btn {
+    background: rgba(200, 50, 50, 0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
