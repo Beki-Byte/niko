@@ -133,7 +133,7 @@ async function sendMessageToNiko(userMessage) {
 
         if (data.error) {
             console.error("Google API Fehler:", data.error);
-            appendMessage('niko', 'Warte ganz kurz 15 Sekunden, kurz Überlastung!');
+            appendMessage('niko', 'Warte ganz kurz nh minute, deine tokens sind alle!');
             return;
         }
 
